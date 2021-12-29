@@ -1,18 +1,29 @@
 /** @format */
 
 import { useState, useContext } from "react";
+
 import { ThemeContext } from "../context/ThemeContext";
 import { PlayersContext } from "../context/PlayersContext";
+
 import Header from "../components/Header";
 import PlayersView from "../components/Home/PlayersView";
+import NewPlayerButton from "../components/Home/NewPlayerButton";
+import StartGameButton from "../components/Home/StartGameButton";
+import Footer from "../components/Footer";
+import ThemeToggle from "../components/ThemeToggle";
+import StartingBalance from "../components/Home/StartingBalance";
 
 const Home = () => {
   const theme = useContext(ThemeContext).theme;
-  const toggleTheme = useContext(ThemeContext).toggleTheme;
   const [playerList, setPlayerList] = useState(
     useContext(PlayersContext).playerList
   );
-  // const initiatePlayerList = useContext(PlayersContext).initiateList;
+  function addPlayer() {
+    //
+  }
+  function removePlayer(id: string) {
+    //
+  }
 
   return (
     <div
@@ -22,7 +33,12 @@ const Home = () => {
       }}
     >
       <Header />
-      <PlayersView />
+      <StartingBalance />
+      <PlayersView playerList={playerList} removePlayer={removePlayer} />
+      <NewPlayerButton />
+      <StartGameButton />
+      <Footer />
+      <ThemeToggle />
     </div>
   );
 };

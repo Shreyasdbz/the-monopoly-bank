@@ -5,18 +5,24 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
+  transition: 0.3s;
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
+}
+
+.heading {
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
 .page-container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 100vh;
+  // height: 100vh;
   width: 100vw;
   flex-direction: column;
 }
@@ -27,14 +33,147 @@
   align-items: center;
   justify-content: center;
   margin: 1rem 0rem;
-  padding: 2.5rem 0rem;
   border-radius: 1rem;
+
+  span {
+    padding: 2.5rem 1rem;
+  }
 }
 
-.players-view {
-  width: 90%;
+.starting-balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+
+  .input {
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0rem;
+  }
+}
+
+.players-view-home {
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+
+  .player-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .player-name-input {
+      border: none;
+      outline: none;
+      max-width: 15rem;
+      padding: 1rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+    }
+    .player-name-input:hover {
+      opacity: 0.9;
+    }
+
+    .button {
+      border: none;
+      outline: none;
+      // margin-left: 0.5rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      .trash-icon {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+    .button:hover {
+      transform: scale(1.125);
+    }
+  }
+}
+
+.new-player-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0.75rem 0rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem 5rem;
+  border-radius: 0.75rem;
+}
+.new-player-btn:hover {
+  transform: scale(1.025);
+}
+
+.start-game-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 0.75rem;
+}
+.start-game-btn:hover {
+  opacity: 0.85;
+}
+
+.footer {
+  justify-self: flex-end;
+  margin-top: 5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem 0rem;
+
+  a {
+    // border-top-left-radius: 1rem;
+    // border-top-right-radius: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 2rem;
+    cursor: pointer;
+  }
+}
+.footer:hover {
+  opacity: 0.85;
+}
+
+.theme-toggle {
+  border: none;
+  outline: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .icon {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+.theme-toggle:hover {
+  transform: scale(1.25);
 }

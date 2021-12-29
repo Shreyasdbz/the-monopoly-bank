@@ -2,14 +2,14 @@
 
 import React, { useState, createContext } from "react";
 
-import { styles, theme } from "./theme";
+import { styles, ThemeType } from "./theme";
 
 type ThemeContextProviderProps = {
   children: React.ReactElement;
 };
 
 type ThemeContextType = {
-  theme: theme;
+  theme: ThemeType;
   toggleTheme: () => void;
 };
 
@@ -18,7 +18,7 @@ export const ThemeContext = createContext({} as ThemeContextType);
 export const ThemeContextProvider = ({
   children,
 }: ThemeContextProviderProps) => {
-  const [theme, setTheme] = useState<theme>(styles.light);
+  const [theme, setTheme] = useState<ThemeType>(styles.light);
 
   function toggleTheme() {
     if (theme === styles.light) {
