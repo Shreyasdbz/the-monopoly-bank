@@ -22,24 +22,24 @@ const initialPlayerData: PlayerType[] = [
     balance: 0,
     colorID: 5,
   },
-  {
-    id: "aaa004",
-    name: "Player 4",
-    balance: 0,
-    colorID: 3,
-  },
-  {
-    id: "aaa005",
-    name: "Player 5",
-    balance: 0,
-    colorID: 1,
-  },
-  {
-    id: "aaa006",
-    name: "Player 6",
-    balance: 0,
-    colorID: 8,
-  },
+  // {
+  //   id: "aaa004",
+  //   name: "Player 4",
+  //   balance: 0,
+  //   colorID: 3,
+  // },
+  // {
+  //   id: "aaa005",
+  //   name: "Player 5",
+  //   balance: 0,
+  //   colorID: 1,
+  // },
+  // {
+  //   id: "aaa006",
+  //   name: "Player 6",
+  //   balance: 0,
+  //   colorID: 8,
+  // },
 ];
 
 type PlayersContextProviderProps = {
@@ -48,7 +48,7 @@ type PlayersContextProviderProps = {
 
 type PlayersContextType = {
   playerList: PlayerType[];
-  initiateList: (balance: number) => void;
+  initiateList: (balance: number, newPlayerList: PlayerType[]) => void;
   updateList: (newPlayerList: PlayerType[]) => void;
   resetList: () => void;
 };
@@ -60,8 +60,8 @@ export const PlayersContextProvider = ({
 }: PlayersContextProviderProps) => {
   const [playerList, setPlayerList] = useState<PlayerType[]>(initialPlayerData);
 
-  function initiateList(balance: number) {
-    var tempPlayerList = playerList;
+  function initiateList(balance: number, newPlayerList: PlayerType[]) {
+    var tempPlayerList = newPlayerList;
     for (let player of tempPlayerList) {
       player.balance = balance;
     }

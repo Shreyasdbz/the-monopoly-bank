@@ -12,6 +12,9 @@ export const styles = {
     secondary: "#2FE4CF",
     tertiary: "#572FE4",
     accent: "#E42F81",
+    danger: "#DD1515",
+    warning: "#DE7316",
+    success: "#07AE52",
   },
   dark: {
     background: "#000000",
@@ -22,5 +25,8 @@ export const styles = {
     secondary: "#2FE4CF",
     tertiary: "#572FE4",
     accent: "#E42F81",
+    danger: "#DD1515",
+    warning: "#DE7316",
+    success: "#07AE52",
   },
 };

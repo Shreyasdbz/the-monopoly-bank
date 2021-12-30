@@ -15,6 +15,14 @@ type PlayersViewProps = {
 const PlayersView = ({ playerList, removePlayer }: PlayersViewProps) => {
   const theme = useContext(ThemeContext).theme;
 
+  function handleChange(id: string, changeValue: string) {
+    for (let player of playerList) {
+      if (player.id === id) {
+        player.name = changeValue;
+      }
+    }
+  }
+
   return (
     <div
       className="players-view-home"
@@ -33,6 +41,7 @@ const PlayersView = ({ playerList, removePlayer }: PlayersViewProps) => {
                 backgroundColor: `${getColorByID(player.colorID)}`,
                 boxShadow: `0px 0px 15px 0px ${getColorByID(player.colorID)}50`,
               }}
+              onChange={(e) => handleChange(player.id, e.target.value)}
             />
             <button
               className="button"

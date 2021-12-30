@@ -1,9 +1,13 @@
 /** @format */
 
 import { useState, useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { ThemeContext } from "../context/ThemeContext";
 import { PlayersContext } from "../context/PlayersContext";
+import { DEFAULT_STARTING_BALANCE } from "../context/constants";
+import { PlayerType } from "../interfaces/players";
+import { getRandomColor } from "../context/colors";
 
 import Header from "../components/Header";
 import PlayersView from "../components/Home/PlayersView";
@@ -18,11 +22,30 @@ const Home = () => {
   const [playerList, setPlayerList] = useState(
     useContext(PlayersContext).playerList
   );
+  const initiateList = useContext(PlayersContext).initiateList;
+  const [startingBalance, setStartingBalance] = useState(
+    DEFAULT_STARTING_BALANCE
+  );
+
   function addPlayer() {
-    //
+    let uuid = uuidv4();
+    var newPlayerName = `Player ${playerList.length + 1}`;
+    var new_player_to_add: PlayerType = {
+      id: uuid,
+      name: newPlayerName,
+      balance: 0,
+      colorID: getRandomColor().id,
+    };
+    setPlayerList([...playerList, new_player_to_add]);
   }
+
   function removePlayer(id: string) {
-    //
+    let newPlayerList = playerList.filter((player) => player.id !== id);
+    setPlayerList(newPlayerList);
+  }
+
+  function startGame() {
+    initiateList(startingBalance, playerList);
   }
 
   return (
@@ -33,10 +56,13 @@ const Home = () => {
       }}
     >
       <Header />
-      <StartingBalance />
+      <StartingBalance
+        startingBalance={startingBalance}
+        setStartingBalance={setStartingBalance}
+      />
       <PlayersView playerList={playerList} removePlayer={removePlayer} />
-      <NewPlayerButton />
-      <StartGameButton />
+      <NewPlayerButton addPlayer={addPlayer} />
+      <StartGameButton startGame={startGame} />
       <Footer />
       <ThemeToggle />
     </div>

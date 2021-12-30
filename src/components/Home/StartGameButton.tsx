@@ -1,21 +1,29 @@
 /** @format */
 
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { ThemeContext } from "../../context/ThemeContext";
 
-const StartGameButton = () => {
+type StartGameButtonProps = {
+  startGame: () => void;
+};
+
+const StartGameButton = ({ startGame }: StartGameButtonProps) => {
   const theme = useContext(ThemeContext).theme;
   return (
-    <button
-      className="start-game-btn"
-      style={{
-        backgroundColor: `${theme.primary}`,
-        boxShadow: `0px 0px 15px 5px ${theme.primary}50`,
-      }}
-    >
-      Start the Game
-    </button>
+    <Link to="/game">
+      <button
+        className="start-game-btn"
+        style={{
+          backgroundColor: `${theme.primary}`,
+          boxShadow: `0px 0px 15px 5px ${theme.primary}50`,
+        }}
+        onClick={startGame}
+      >
+        Start the Game
+      </button>
+    </Link>
   );
 };
 
