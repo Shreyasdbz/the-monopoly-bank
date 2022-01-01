@@ -185,7 +185,9 @@
   border-radius: 0.75rem;
   font-size: 1.35rem;
   font-weight: 600;
-  padding: 0.35rem 0rem;
+  padding: 0.5rem 0rem;
+  max-width: 30%;
+  overflow-x: hidden;
 }
 
 .players-view-game .player-box .name span {
@@ -227,11 +229,18 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  cursor: pointer;
 }
 
 .players-view-game .player-box .actions .btn .icon {
   font-size: 2.5rem;
   color: white;
+}
+
+.players-view-game .player-box .actions .btn:hover {
+  opacity: 0.8;
+  -webkit-transform: scale(1.125);
+          transform: scale(1.125);
 }
 
 .new-player-btn {
@@ -264,6 +273,30 @@
 
 .start-game-btn:hover {
   opacity: 0.85;
+}
+
+.view-transactions-btn {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.view-transactions-btn:hover {
+  opacity: 0.8;
 }
 
 .footer {

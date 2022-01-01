@@ -5,6 +5,7 @@ import { PlayersContext } from "../context/PlayersContext";
 
 import Header from "../components/Header";
 import PlayersView from "../components/Game/PlayersView";
+import ViewTransactionsButton from "../components/Game/ViewTransactionsButton";
 
 const Game = () => {
   const [playerList, setPlayerList] = useState(
@@ -15,6 +16,7 @@ const Game = () => {
     <div className="page-container">
       <Header />
       <PlayersView playerList={playerList} />
+      <ViewTransactionsButton />
     </div>
   );
 };
