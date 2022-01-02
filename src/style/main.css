@@ -146,7 +146,7 @@
           transform: scale(1.125);
 }
 
-.players-view-game {
+.players-view-game-large {
   width: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -166,7 +166,7 @@
   border-radius: 1rem;
 }
 
-.players-view-game .player-box {
+.players-view-game-large .player-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,30 +180,29 @@
   gap: 1rem;
 }
 
-.players-view-game .player-box .name {
+.players-view-game-large .player-box .name {
   width: 100%;
   border-radius: 0.75rem;
   font-size: 1.35rem;
   font-weight: 600;
-  padding: 0.5rem 0rem;
-  max-width: 30%;
+  padding: 0.75rem 0rem;
   overflow-x: hidden;
 }
 
-.players-view-game .player-box .name span {
+.players-view-game-large .player-box .name span {
   font-size: 1.5rem;
-  padding-left: 0.5rem;
+  padding: 0rem 0.5rem;
   color: white;
 }
 
-.players-view-game .player-box .balance span {
+.players-view-game-large .player-box .balance span {
   font-size: 1.35rem;
-  padding: 0.25rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.75rem;
   font-weight: 600;
 }
 
-.players-view-game .player-box .actions {
+.players-view-game-large .player-box .actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,7 +215,7 @@
   gap: 0.5rem;
 }
 
-.players-view-game .player-box .actions .btn {
+.players-view-game-large .player-box .actions .btn {
   border: none;
   outline: none;
   border-radius: 2rem;
@@ -232,12 +231,12 @@
   cursor: pointer;
 }
 
-.players-view-game .player-box .actions .btn .icon {
-  font-size: 2.5rem;
+.players-view-game-large .player-box .actions .btn .icon {
+  font-size: 2.75rem;
   color: white;
 }
 
-.players-view-game .player-box .actions .btn:hover {
+.players-view-game-large .player-box .actions .btn:hover {
   opacity: 0.8;
   -webkit-transform: scale(1.125);
           transform: scale(1.125);
@@ -276,6 +275,7 @@
 }
 
 .view-transactions-btn {
+  margin-top: 1rem;
   border: none;
   outline: none;
   font-size: 1.5rem;
@@ -296,6 +296,32 @@
 }
 
 .view-transactions-btn:hover {
+  opacity: 0.8;
+}
+
+.reset-game-btn {
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  text-decoration: none;
+}
+
+.reset-game-btn:hover {
   opacity: 0.8;
 }
 

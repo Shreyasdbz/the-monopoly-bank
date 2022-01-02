@@ -6,6 +6,8 @@ import { PlayersContext } from "../context/PlayersContext";
 import Header from "../components/Header";
 import PlayersView from "../components/Game/PlayersView";
 import ViewTransactionsButton from "../components/Game/ViewTransactionsButton";
+import ResetGameButton from "../components/Game/ResetGameButton";
+import Footer from "../components/Footer";
 
 const Game = () => {
   const [playerList, setPlayerList] = useState(
@@ -17,6 +19,8 @@ const Game = () => {
       <Header />
       <PlayersView playerList={playerList} />
       <ViewTransactionsButton />
+      <ResetGameButton />
+      <Footer />
     </div>
   );
 };
