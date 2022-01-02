@@ -6,9 +6,8 @@ export const styles = {
   light: {
     background: "#FFFFFF",
     text: "#000000",
-    inputBg: "#EBEBEB",
-    greyText: "#A2A2A2",
-    greyTextMain: "#555555",
+    greyBackground: "#E2E2E2",
+    greyText: "#555555",
     primary: "#2D7FE4",
     secondary: "#2FE4CF",
     tertiary: "#572FE4",
@@ -20,9 +19,8 @@ export const styles = {
   dark: {
     background: "#000000",
     text: "#FFFFFF",
-    inputBg: "#EBEBEB",
-    greyText: "#A2A2A2",
-    greyTextMain: "#555555",
+    greyBackground: "#C2C2C2",
+    greyText: "#555555",
     primary: "#2D7FE4",
     secondary: "#2FE4CF",
     tertiary: "#572FE4",
@@ -32,3 +30,15 @@ export const styles = {
     success: "#07AE52",
   },
 };
+
+// backgrond
+// text
+// greyBackground
+// greyText
+// primary
+// secondary
+// tertiary
+// accent
+// danger
+// warning
+// success

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { BiTrash } from "react-icons/bi";
 
 import { ThemeContext } from "../../context/ThemeContext";
-import { getColorByID } from "../../context/colors";
+import { getPlayerColor } from "../../helpers/playerColor";
 import { PlayerType } from "../../interfaces/players";
 
 type PlayersViewProps = {
@@ -27,7 +27,7 @@ const PlayersView = ({ playerList, removePlayer }: PlayersViewProps) => {
     <div
       className="players-view-home"
       style={{
-        border: `2px solid ${theme.inputBg}`,
+        border: `2px solid ${theme.greyBackground}`,
       }}
     >
       {playerList.map((player) => {
@@ -38,8 +38,10 @@ const PlayersView = ({ playerList, removePlayer }: PlayersViewProps) => {
               defaultValue={player.name}
               className="player-name-input"
               style={{
-                backgroundColor: `${getColorByID(player.colorID)}`,
-                boxShadow: `0px 0px 15px 0px ${getColorByID(player.colorID)}50`,
+                backgroundColor: `${getPlayerColor(player.colorID)}`,
+                boxShadow: `0px 0px 15px 0px ${getPlayerColor(
+                  player.colorID
+                )}50`,
               }}
               onChange={(e) => handleChange(player.id, e.target.value)}
             />
@@ -51,7 +53,7 @@ const PlayersView = ({ playerList, removePlayer }: PlayersViewProps) => {
               <BiTrash
                 className="trash-icon"
                 style={{
-                  color: `${getColorByID(player.colorID)}`,
+                  color: `${getPlayerColor(player.colorID)}`,
                 }}
               />
             </button>

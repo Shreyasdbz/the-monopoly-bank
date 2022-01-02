@@ -13,7 +13,7 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
         style={{
-          backgroundColor: `${theme.inputBg}`,
+          backgroundColor: `${theme.greyBackground}`,
           color: `${theme.greyText}`,
         }}
       >

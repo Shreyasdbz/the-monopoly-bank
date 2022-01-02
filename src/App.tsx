@@ -9,6 +9,7 @@ import { PlayersContextProvider } from "./context/PlayersContext";
 
 import Home from "./routes/Home";
 import Game from "./routes/Game";
+import SiteColors from "./routes/SiteColors";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/game" element={<Game />} />
+              <Route path="/sitecolors" element={<SiteColors />} />
             </Routes>
           </PlayersContextProvider>
         </ThemeContextProvider>

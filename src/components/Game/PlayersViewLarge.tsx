@@ -4,7 +4,7 @@ import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 
 import { ThemeContext } from "../../context/ThemeContext";
 import { PlayerType } from "../../interfaces/players";
-import { getColorByID } from "../../context/colors";
+import { getPlayerColor } from "../../helpers/playerColor";
 
 type PlayersViewLargeProps = {
   playerList: PlayerType[];
@@ -20,7 +20,7 @@ const PlayersViewLarge = ({ playerList }: PlayersViewLargeProps) => {
             <div
               className="name"
               style={{
-                backgroundColor: `${getColorByID(player.colorID)}`,
+                backgroundColor: `${getPlayerColor(player.colorID)}`,
               }}
             >
               <span>{player.name}</span>
@@ -28,8 +28,8 @@ const PlayersViewLarge = ({ playerList }: PlayersViewLargeProps) => {
             <div className="balance">
               <span
                 style={{
-                  backgroundColor: `${theme.inputBg}`,
-                  color: `${theme.greyTextMain}`,
+                  backgroundColor: `${theme.greyBackground}`,
+                  color: `${theme.greyText}`,
                 }}
               >
                 {player.balance}
@@ -39,7 +39,7 @@ const PlayersViewLarge = ({ playerList }: PlayersViewLargeProps) => {
               <button
                 className="btn"
                 style={{
-                  backgroundColor: `${getColorByID(player.colorID)}`,
+                  backgroundColor: `${getPlayerColor(player.colorID)}`,
                 }}
               >
                 <IoAddCircleOutline className="icon" />
@@ -47,7 +47,7 @@ const PlayersViewLarge = ({ playerList }: PlayersViewLargeProps) => {
               <button
                 className="btn"
                 style={{
-                  backgroundColor: `${getColorByID(player.colorID)}`,
+                  backgroundColor: `${getPlayerColor(player.colorID)}`,
                 }}
               >
                 <IoRemoveCircleOutline className="icon" />

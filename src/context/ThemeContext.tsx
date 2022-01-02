@@ -2,7 +2,7 @@
 
 import React, { useState, createContext } from "react";
 
-import { styles, ThemeType } from "./theme";
+import { styles, ThemeType } from "../style/theme";
 
 type ThemeContextProviderProps = {
   children: React.ReactElement;

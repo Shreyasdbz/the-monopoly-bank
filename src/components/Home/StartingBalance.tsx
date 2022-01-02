@@ -43,8 +43,9 @@ const StartingBalance = ({
         defaultValue={startingBalance.toString()}
         onChange={(e) => handleChange(e.target.value)}
         style={{
-          backgroundColor: `${theme.inputBg}`,
-          boxShadow: `0px 0px 10px 5px ${theme.inputBg}80`,
+          backgroundColor: `${theme.greyBackground}`,
+          boxShadow: `0px 0px 10px 5px ${theme.greyBackground}80`,
+          color: `${theme.greyText}`,
         }}
       />
       {errorMessage && (

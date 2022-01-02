@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { PlayersContext } from "../context/PlayersContext";
 import { DEFAULT_STARTING_BALANCE } from "../context/constants";
 import { PlayerType } from "../interfaces/players";
-import { getRandomColor } from "../context/colors";
+import { getRandomColorID } from "../helpers/playerColor";
 
 import Header from "../components/Header";
 import PlayersView from "../components/Home/PlayersView";
@@ -34,7 +34,7 @@ const Home = () => {
       id: uuid,
       name: newPlayerName,
       balance: 0,
-      colorID: getRandomColor().id,
+      colorID: getRandomColorID(),
     };
     setPlayerList([...playerList, new_player_to_add]);
   }

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { HiOutlineSun, HiMoon } from "react-icons/hi";
 
 import { ThemeContext } from "../context/ThemeContext";
-import { styles } from "../context/theme";
+import { styles } from "../style/theme";
 
 const ThemeToggle = () => {
   const theme = useContext(ThemeContext).theme;

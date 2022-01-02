@@ -8,38 +8,20 @@ const initialPlayerData: PlayerType[] = [
     id: "aaa001",
     name: "Player 1",
     balance: 0,
-    colorID: 4,
+    colorID: 1,
   },
   {
     id: "aaa002",
     name: "Player 2",
     balance: 0,
-    colorID: 2,
+    colorID: 9,
   },
   {
     id: "aaa003",
     name: "Player 3",
     balance: 0,
-    colorID: 5,
+    colorID: 7,
   },
-  // {
-  //   id: "aaa004",
-  //   name: "Player 4",
-  //   balance: 0,
-  //   colorID: 3,
-  // },
-  // {
-  //   id: "aaa005",
-  //   name: "Player 5",
-  //   balance: 0,
-  //   colorID: 1,
-  // },
-  // {
-  //   id: "aaa006",
-  //   name: "Player 6",
-  //   balance: 0,
-  //   colorID: 8,
-  // },
 ];
 
 type PlayersContextProviderProps = {
