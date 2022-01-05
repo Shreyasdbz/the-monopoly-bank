@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { ThemeContext } from "../context/ThemeContext";
 import { PlayersContext } from "../context/PlayersContext";
+import { TransactionsContext } from "../context/TransactionsContext";
 import { DEFAULT_STARTING_BALANCE } from "../context/constants";
 import { PlayerType } from "../interfaces/players";
 import { getRandomColorID } from "../helpers/playerColor";
@@ -26,6 +27,8 @@ const Home = () => {
   const [startingBalance, setStartingBalance] = useState(
     DEFAULT_STARTING_BALANCE
   );
+  const initiateTransactionsList =
+    useContext(TransactionsContext).initiateTransactionsList;
 
   function addPlayer() {
     let uuid = uuidv4();
@@ -46,6 +49,7 @@ const Home = () => {
 
   function startGame() {
     initiateList(startingBalance, playerList);
+    initiateTransactionsList(startingBalance, playerList);
   }
 
   return (
