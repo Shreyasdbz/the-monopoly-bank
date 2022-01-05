@@ -3,17 +3,22 @@ import { useContext } from "react";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 
 import { ThemeContext } from "../../context/ThemeContext";
+import { TransactionActionType } from "../../interfaces/game";
 import { PlayerType } from "../../interfaces/players";
 import { getPlayerColor } from "../../helpers/playerColor";
 
 type PlayersViewSmallProps = {
   playerList: PlayerType[];
+  handleTransaction: (payload: TransactionActionType) => void;
 };
 
-const PlayersViewSmall = ({ playerList }: PlayersViewSmallProps) => {
+const PlayersViewSmall = ({
+  playerList,
+  handleTransaction,
+}: PlayersViewSmallProps) => {
   const theme = useContext(ThemeContext).theme;
   return (
-    <div className="players-view-small">
+    <div className="players-view-game-small">
       {playerList.map((player) => {
         return (
           <div
@@ -34,7 +39,20 @@ const PlayersViewSmall = ({ playerList }: PlayersViewSmallProps) => {
               {player.balance}
             </div>
             <div className="actions">
-              <button className="btn">
+              <button
+                className="btn"
+                onClick={() => {
+                  var payload: TransactionActionType = {
+                    action: "OPEN",
+                    transactionInformation: {
+                      player: player,
+                      amount: 0,
+                      type: "ADD",
+                    },
+                  };
+                  handleTransaction(payload);
+                }}
+              >
                 <IoRemoveCircleOutline
                   className="icon sub"
                   style={{
@@ -43,7 +61,20 @@ const PlayersViewSmall = ({ playerList }: PlayersViewSmallProps) => {
                 />
                 <span className="text">SUB</span>
               </button>
-              <button className="btn">
+              <button
+                className="btn"
+                onClick={() => {
+                  var payload: TransactionActionType = {
+                    action: "OPEN",
+                    transactionInformation: {
+                      player: player,
+                      amount: 0,
+                      type: "SUB",
+                    },
+                  };
+                  handleTransaction(payload);
+                }}
+              >
                 <IoAddCircleOutline
                   className="icon add"
                   style={{

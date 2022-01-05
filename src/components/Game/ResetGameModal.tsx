@@ -1,30 +1,42 @@
 /** @format */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { ResetModalActionTypes } from "../../interfaces/game";
+import { ThemeContext } from "../../context/ThemeContext";
 
 type ResetGameModalProps = {
-  handleResetButton: (action: ResetModalActionTypes) => void;
+  handleReset: (action: ResetModalActionTypes) => void;
 };
 
-const ResetGameModal = ({ handleResetButton }: ResetGameModalProps) => {
+const ResetGameModal = ({ handleReset }: ResetGameModalProps) => {
+  const theme = useContext(ThemeContext).theme;
+
   return (
     <div className="reset-game-modal">
       <div className="label">Are you sure you want to reset the game?</div>
       <div className="actions">
         <button
-          className="cancel"
+          className="btn cancel"
+          style={{
+            backgroundColor: `${theme.success}`,
+            boxShadow: `0px 0px 15px 5px ${theme.success}20`,
+          }}
           onClick={() => {
-            handleResetButton("CANCEL");
+            handleReset("CANCEL");
           }}
         >
           CANCEL
         </button>
         <Link to="/">
           <button
-            className="confirm"
+            className="btn confirm"
+            style={{
+              backgroundColor: `${theme.danger}`,
+              boxShadow: `0px 0px 15px 5px ${theme.danger}20`,
+            }}
             onClick={() => {
-              handleResetButton("CONFIRM");
+              handleReset("CONFIRM");
             }}
           >
             CONFIRM

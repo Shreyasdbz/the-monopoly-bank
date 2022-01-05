@@ -2,9 +2,13 @@
 import { useContext, useState } from "react";
 
 import { PlayersContext } from "../context/PlayersContext";
-
 import { ThemeContext } from "../context/ThemeContext";
-import { ResetModalActionTypes } from "../interfaces/game";
+import {
+  ResetModalActionTypes,
+  TransactionActionType,
+  CurrentPlayerTransactionType,
+} from "../interfaces/game";
+
 import Header from "../components/Header";
 import PlayersView from "../components/Game/PlayersView";
 import ViewTransactionsButton from "../components/Game/ViewTransactionsButton";
@@ -13,14 +17,18 @@ import Footer from "../components/Footer";
 import ThemeToggle from "../components/ThemeToggle";
 import Modal from "../components/Modal";
 import ResetGameModal from "../components/Game/ResetGameModal";
+import TransactionModal from "../components/Game/TransactionModal";
 
 const Game = () => {
   const theme = useContext(ThemeContext).theme;
-  let playerList = useContext(PlayersContext).playerList;
+  const playerList = useContext(PlayersContext).playerList;
+  const updateList = useContext(PlayersContext).updateList;
   const [resetModalActive, setResetModalActive] = useState(false);
   const [transactionModalActive, setTransactionModalActive] = useState(false);
+  const [currentPlayerTransaction, setCurrentPlayerTransaction] =
+    useState<CurrentPlayerTransactionType | null>(null);
 
-  function handleResetButton(action: ResetModalActionTypes) {
+  function handleReset(action: ResetModalActionTypes) {
     if (action === "OPEN") {
       setResetModalActive(true);
       //
@@ -33,8 +41,31 @@ const Game = () => {
     }
   }
 
-  function handleTransaction() {
-    //
+  function handleTransaction(payload: TransactionActionType) {
+    if (payload.action === "OPEN") {
+      setTransactionModalActive(true);
+      setCurrentPlayerTransaction(payload.transactionInformation);
+    } else if (payload.action === "CANCEL") {
+      setTransactionModalActive(false);
+      setCurrentPlayerTransaction(null);
+    } else if (payload.action === "CONFIRM") {
+      if (payload.transactionInformation.type === "ADD") {
+        for (let player of playerList) {
+          if (player.id === payload.transactionInformation.player.id) {
+            player.balance += payload.transactionInformation.amount;
+          }
+        }
+      } else if (payload.transactionInformation.type === "SUB") {
+        for (let player of playerList) {
+          if (player.id === payload.transactionInformation.player.id) {
+            player.balance -= payload.transactionInformation.amount;
+          }
+        }
+      }
+      updateList(playerList);
+      setTransactionModalActive(false);
+      setCurrentPlayerTransaction(null);
+    }
   }
 
   return (
@@ -48,15 +79,28 @@ const Game = () => {
         }}
       >
         <Header />
-        <PlayersView playerList={playerList} />
+        <PlayersView
+          playerList={playerList}
+          handleTransaction={handleTransaction}
+        />
         <ViewTransactionsButton />
-        <ResetGameButton handleResetButton={handleResetButton} />
+        <ResetGameButton handleReset={handleReset} />
         <Footer />
         <ThemeToggle />
       </div>
       {resetModalActive ? (
         <Modal>
-          <ResetGameModal handleResetButton={handleResetButton} />
+          <ResetGameModal handleReset={handleReset} />
+        </Modal>
+      ) : (
+        <></>
+      )}
+      {transactionModalActive && currentPlayerTransaction ? (
+        <Modal>
+          <TransactionModal
+            currentPlayerTransaction={currentPlayerTransaction}
+            handleTransaction={handleTransaction}
+          />
         </Modal>
       ) : (
         <></>

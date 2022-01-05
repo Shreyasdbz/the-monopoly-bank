@@ -49,9 +49,11 @@ export const PlayersContextProvider = ({
     }
     setPlayerList(tempPlayerList);
   }
+
   function updateList(newPlayerList: PlayerType[]) {
     setPlayerList(newPlayerList);
   }
+
   function resetList() {
     setPlayerList(initialPlayerData);
   }
