@@ -23,20 +23,34 @@ const TransactionModal = ({
 
   return (
     <div className="transaction-modal">
-      <div className="label">
-        <span className="normal">Enter an amount to </span>
-        <span className="action">{currentPlayerTransaction.type}</span>
-        <span className="normal"> for </span>
-        <span
-          className="player"
-          style={{
-            backgroundColor: `${getPlayerColor(
-              currentPlayerTransaction.player.colorID
-            )}`,
-          }}
-        >
-          {currentPlayerTransaction.player.name}
+      <div
+        className="label"
+        style={{
+          color: `${theme.text}`,
+        }}
+      >
+        <span className="normal">
+          Enter an amount to {currentPlayerTransaction.type.toLowerCase()}
         </span>
+        <span className="normal"> for </span>
+        <div className="player">
+          <span
+            className="name"
+            style={{
+              color: `${getPlayerColor(
+                currentPlayerTransaction.player.colorID
+              )}`,
+              border: `3px solid ${getPlayerColor(
+                currentPlayerTransaction.player.colorID
+              )}80`,
+              boxShadow: `0px 0px 15px 5px ${getPlayerColor(
+                currentPlayerTransaction.player.colorID
+              )}20`,
+            }}
+          >
+            {currentPlayerTransaction.player.name}
+          </span>
+        </div>
       </div>
       <input
         type="number"

@@ -399,18 +399,17 @@
     font-size: 1.5rem;
     font-weight: 600;
 
-    .action {
-      font-weight: 400;
-    }
-
     .player {
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      margin: 0.25rem 0rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.75rem;
+      margin-top: 0.75rem;
+
+      .name {
+        padding: 0.5rem 2rem;
+        border-radius: 0.75rem;
+      }
     }
   }
 

@@ -549,10 +549,6 @@
   font-weight: 600;
 }
 
-.transaction-modal .label .action {
-  font-weight: 400;
-}
-
 .transaction-modal .label .player {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -564,8 +560,11 @@
       -ms-flex-pack: center;
           justify-content: center;
   color: white;
-  margin: 0.25rem 0rem;
-  padding: 0.25rem 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.transaction-modal .label .player .name {
+  padding: 0.5rem 2rem;
   border-radius: 0.75rem;
 }
 

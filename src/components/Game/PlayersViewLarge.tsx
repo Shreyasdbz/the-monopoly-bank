@@ -26,6 +26,9 @@ const PlayersViewLarge = ({
               className="name"
               style={{
                 backgroundColor: `${getPlayerColor(player.colorID)}`,
+                boxShadow: `0px 0px 15px 5px ${getPlayerColor(
+                  player.colorID
+                )}30`,
               }}
             >
               <span>{player.name}</span>
@@ -34,6 +37,7 @@ const PlayersViewLarge = ({
               <span
                 style={{
                   backgroundColor: `${theme.greyBackground}`,
+                  boxShadow: `0px 0px 15px 5px ${theme.greyBackground}50`,
                   color: `${theme.greyText}`,
                 }}
               >
@@ -45,6 +49,9 @@ const PlayersViewLarge = ({
                 className="btn"
                 style={{
                   backgroundColor: `${getPlayerColor(player.colorID)}`,
+                  boxShadow: `0px 0px 15px 5px ${getPlayerColor(
+                    player.colorID
+                  )}30`,
                 }}
                 onClick={() => {
                   var payload: TransactionActionType = {
@@ -64,6 +71,9 @@ const PlayersViewLarge = ({
                 className="btn"
                 style={{
                   backgroundColor: `${getPlayerColor(player.colorID)}`,
+                  boxShadow: `0px 0px 15px 5px ${getPlayerColor(
+                    player.colorID
+                  )}30`,
                 }}
                 onClick={() => {
                   var payload: TransactionActionType = {
