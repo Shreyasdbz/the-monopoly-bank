@@ -14,7 +14,7 @@ type PlayersViewProps = {
 const PlayersView = ({ playerList, handleTransaction }: PlayersViewProps) => {
   const windowDimensions = getWindowDimensions();
 
-  if (windowDimensions.width < 500) {
+  if (windowDimensions.width < 600) {
     return (
       <PlayersViewSmall
         playerList={playerList}

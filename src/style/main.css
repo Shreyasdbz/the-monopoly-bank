@@ -526,6 +526,93 @@
   max-width: 80%;
 }
 
+.transaction-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.transaction-modal .label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.transaction-modal .label .action {
+  font-weight: 400;
+}
+
+.transaction-modal .label .player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  margin: 0.25rem 0rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.transaction-modal .input {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.transaction-modal .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.transaction-modal .actions .btn {
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transaction-modal .actions .btn:hover {
+  opacity: 0.85;
+}
+
 .footer {
   justify-self: flex-end;
   margin-top: 5rem;

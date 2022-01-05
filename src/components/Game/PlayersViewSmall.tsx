@@ -47,7 +47,7 @@ const PlayersViewSmall = ({
                     transactionInformation: {
                       player: player,
                       amount: 0,
-                      type: "ADD",
+                      type: "SUB",
                     },
                   };
                   handleTransaction(payload);
@@ -69,7 +69,7 @@ const PlayersViewSmall = ({
                     transactionInformation: {
                       player: player,
                       amount: 0,
-                      type: "SUB",
+                      type: "ADD",
                     },
                   };
                   handleTransaction(payload);
