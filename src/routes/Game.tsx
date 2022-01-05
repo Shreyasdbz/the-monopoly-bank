@@ -65,36 +65,40 @@ const Game = () => {
       setTransactionModalActive(false);
       setCurrentPlayerTransaction(null);
     } else if (payload.action === "CONFIRM") {
-      if (payload.transactionInformation.type === "ADD") {
-        for (let player of playerList) {
-          if (player.id === payload.transactionInformation.player.id) {
-            player.balance += payload.transactionInformation.amount;
-            let transaction: TransactionType = {
-              id: uuidv4(),
-              player: player,
-              type: "ADD",
-              amount: payload.transactionInformation.amount,
-            };
-            appendTransaction(transaction);
+      //TODO: ERROR CHECK
+      let pass = true;
+      if (pass === true) {
+        if (payload.transactionInformation.type === "ADD") {
+          for (let player of playerList) {
+            if (player.id === payload.transactionInformation.player.id) {
+              player.balance += payload.transactionInformation.amount;
+              let transaction: TransactionType = {
+                id: uuidv4(),
+                player: player,
+                type: "ADD",
+                amount: payload.transactionInformation.amount,
+              };
+              appendTransaction(transaction);
+            }
+          }
+        } else if (payload.transactionInformation.type === "SUB") {
+          for (let player of playerList) {
+            if (player.id === payload.transactionInformation.player.id) {
+              player.balance -= payload.transactionInformation.amount;
+              let transaction: TransactionType = {
+                id: uuidv4(),
+                player: player,
+                type: "SUB",
+                amount: payload.transactionInformation.amount,
+              };
+              appendTransaction(transaction);
+            }
           }
         }
-      } else if (payload.transactionInformation.type === "SUB") {
-        for (let player of playerList) {
-          if (player.id === payload.transactionInformation.player.id) {
-            player.balance -= payload.transactionInformation.amount;
-            let transaction: TransactionType = {
-              id: uuidv4(),
-              player: player,
-              type: "SUB",
-              amount: payload.transactionInformation.amount,
-            };
-            appendTransaction(transaction);
-          }
-        }
+        updateList(playerList);
+        setTransactionModalActive(false);
+        setCurrentPlayerTransaction(null);
       }
-      updateList(playerList);
-      setTransactionModalActive(false);
-      setCurrentPlayerTransaction(null);
     }
   }
 

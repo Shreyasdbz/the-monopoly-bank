@@ -1,6 +1,6 @@
 /** @format */
 
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 
 import { ThemeContext } from "../../context/ThemeContext";
 import { getPlayerColor } from "../../helpers/playerColor";
@@ -19,7 +19,14 @@ const TransactionModal = ({
   handleTransaction,
 }: TransactionModalProps) => {
   const theme = useContext(ThemeContext).theme;
-  const [amount, setAmount] = useState<number>(200);
+  const [amount, setAmount] = useState<number>(
+    currentPlayerTransaction.type === "ADD" ? 200 : 0
+  );
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <div className="transaction-modal">
@@ -55,6 +62,7 @@ const TransactionModal = ({
       <input
         type="number"
         className="input"
+        ref={inputRef}
         style={{
           backgroundColor: `${theme.greyBackground}`,
           color: `${theme.greyText}`,

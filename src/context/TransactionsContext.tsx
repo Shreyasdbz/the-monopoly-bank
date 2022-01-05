@@ -34,6 +34,7 @@ export const TransactionsContextProvider = ({
     startingBalance: number,
     playerList: PlayerType[]
   ) {
+    let tempTransactionsList: TransactionType[] = transactionsList;
     for (let player of playerList) {
       let transaction: TransactionType = {
         id: uuidv4(),
@@ -41,12 +42,15 @@ export const TransactionsContextProvider = ({
         type: "INIT",
         amount: startingBalance,
       };
-      setTransactionsList([...transactionsList, transaction]);
+      tempTransactionsList.push(transaction);
     }
+    setTransactionsList(tempTransactionsList);
   }
 
   function appendTransaction(transaction: TransactionType) {
-    setTransactionsList([...transactionsList, transaction]);
+    let tempTransactionsList: TransactionType[] = transactionsList;
+    tempTransactionsList.push(transaction);
+    setTransactionsList(tempTransactionsList);
   }
 
   function resetTransactionList() {
